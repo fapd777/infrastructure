@@ -11,7 +11,7 @@ terraform {
 terraform {
   backend "s3" {
     bucket  = "381511845811-tfstate"
-    key     = "in-0001-static-web/Terraform.tfstate"
+    key     = "s3-static-web/Terraform.tfstate"
     region  = "us-east-1"
     profile = "fernando"
   }

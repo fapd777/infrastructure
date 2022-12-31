@@ -5,11 +5,10 @@ jira_tkt              = "IN-0002"
 
 tags = {
     "application-contact"   = "fernando.pedraza.1@gmail.com"
-    "technical-contact"     = "fernando.pedraza.1@gmail.com"
-    "cost-center"           = "Infrastructure"
+    "infrastructure-contact" = "fernando.pedraza.1@gmail.com"
+    "cost-center"           = "Engineering"
     "project"               = "WebHosting"
     "account"               = "Test"
-    "Owner"                 = "fernando.pedraza.1@gmail.com"
     "deployment_1"          = "Terraform"
     "jira_tkt"              = "IN-0002"
 }
