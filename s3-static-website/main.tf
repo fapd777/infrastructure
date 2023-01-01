@@ -5,6 +5,10 @@ terraform {
     aws = {
       source = "hashicorp/aws"
     }
+    github = {
+      source  = "integrations/github"
+      version = "~> 5.0"
+    }
   }
 }
 // UPLOADING TFSTATE IN S3

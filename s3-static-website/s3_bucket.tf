@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "s3_bucket" {
     bucket    = var.s3_bucket_bucket
-
+    force_destroy = true # This should NEVER be used in a production environment
     tags = var.tags
 }
 
@@ -13,7 +13,7 @@ resource "aws_s3_bucket_versioning" "s3_versioning" {
 resource "aws_s3_bucket_acl" "s3_acl" {
   bucket = aws_s3_bucket.s3_bucket.id
   acl    = "private"
-  }
+}
 
 resource "aws_s3_bucket_public_access_block" "public_block" {
   bucket = aws_s3_bucket.s3_bucket.id
@@ -34,4 +34,23 @@ resource "aws_s3_bucket_website_configuration" "s3_bucket_website" {
 resource "aws_s3_bucket_policy" "s3_bucket_policy" {
   bucket = aws_s3_bucket.s3_bucket.id
   policy = data.aws_iam_policy_document.bucket_policy_document.json
+}
+
+############################
+
+resource "aws_s3_bucket" "pipeline" {
+  bucket = var.s3_bucket_pipeline
+  force_destroy = true # This should NEVER be used in a production environment
+  tags = var.tags
+}
+
+resource "aws_s3_bucket_acl" "pipeline_acl" {
+  bucket = aws_s3_bucket.pipeline.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_policy" "pipeline" {
+  bucket = aws_s3_bucket.pipeline.id
+
+  policy = data.aws_iam_policy_document.pipeline.json
 }

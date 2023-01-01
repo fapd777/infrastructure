@@ -8,3 +8,8 @@ provider "aws" {
   region  = var.s3_bucket_region
   profile = "fernando"
 }
+
+provider "github" {
+  token = var.OAuthToken
+  owner = var.repository_owner
+}
