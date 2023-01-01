@@ -9,7 +9,7 @@ provider "aws" {
   profile = "fernando"
 }
 
-provider "github" {
-  token = var.OAuthToken
-  owner = var.repository_owner
-}
+# provider "github" {
+#   token = var.OAuthToken
+#   owner = var.repository_owner
+# }

@@ -15,17 +15,17 @@ resource "aws_codepipeline_webhook" "codepipeline_webhook" {
   tags = var.tags
 }
 
-resource "github_repository_webhook" "github_hook" {
-  repository = var.repository_name
-  events     = ["push"]
+# resource "github_repository_webhook" "github_hook" {
+#   repository = var.repository_name
+#   events     = ["push"]
 
-  configuration {
-    url          = aws_codepipeline_webhook.codepipeline_webhook.url
-    insecure_ssl = "0"
-    content_type = "json"
-    secret       = random_string.github_secret.result
-  }
-}
+#   configuration {
+#     url          = aws_codepipeline_webhook.codepipeline_webhook.url
+#     insecure_ssl = "0"
+#     content_type = "json"
+#     secret       = random_string.github_secret.result
+#   }
+# }
 
 resource "random_string" "github_secret" {
   length  = 99

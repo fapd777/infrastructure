@@ -14,7 +14,7 @@ tags = {
     "jira_tkt"              = "IN-0001"
 }
 
-repository_name     = "stratusgrid/s3-static-website"
+repository_name     = "website"
 repository_owner    = "fapd777"
 repository_branch   = "main"
 OAuthToken          = "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"
