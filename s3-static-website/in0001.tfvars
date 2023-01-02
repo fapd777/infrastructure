@@ -17,6 +17,5 @@ tags = {
 repository_name     = "website"
 repository_owner    = "fapd777"
 repository_branch   = "main"
-OAuthToken          = "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"
 
 s3_bucket_pipeline = "381511845811-in-0001-pipeline"

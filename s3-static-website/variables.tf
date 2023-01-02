@@ -41,11 +41,6 @@ variable "repository_branch" {
   default     = "main"
 }
 
-variable "OAuthToken" {
-  type        = string
-  description = "GitHub Personal Access Token"
-}
-
 variable "s3_bucket_pipeline" {
   type        = string
   description = "s3_bucket_pipeline"
