@@ -53,4 +53,22 @@ resource "aws_codepipeline" "static_web_pipeline" {
       version          = "1"
     }
   }
+
+  stage {
+    name = "Invalidate"
+
+    action {
+      name            = "Invalidate"
+      category        = "Invoke"
+      owner           = "AWS"
+      provider        = "Lambda"
+      input_artifacts = []
+      version         = "1"
+
+      configuration = {
+        FunctionName   = aws_lambda_function.invalidate-cloudfront.function_name
+        UserParameters = "{\"distributionId\": \"${aws_cloudfront_distribution.cloudfront.id}\", \"objectPaths\": [\"/*\"]}"
+      }
+    }
+  }
 }

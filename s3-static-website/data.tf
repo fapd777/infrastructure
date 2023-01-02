@@ -69,6 +69,17 @@ data "aws_iam_policy_document" "codepipeline" {
       "${aws_s3_bucket.s3_bucket.arn}/*",
     ]
   }
+  statement {
+    effect = "Allow"
+    actions = ["lambda:*"]
+    resources = [aws_lambda_function.invalidate-cloudfront.arn]
+  }
 }
 
 data "aws_caller_identity" "current" {}
+
+data "archive_file" "zip_the_python_code" {
+type        = "zip"
+source_dir  = "${path.module}/python/"
+output_path = "${path.module}/python/invalidate-cloudfront-python.zip"
+}
